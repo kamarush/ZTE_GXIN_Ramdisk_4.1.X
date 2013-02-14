@@ -52,8 +52,8 @@ on property:sys.usb.config=accessory,adb
 
 # USB MTP configuration
 on property:sys.usb.config=mtp
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel VID/PID for MTP mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0383
@@ -64,8 +64,8 @@ on property:sys.usb.config=mtp
 
 # USB MTP configuration, with adb
 on property:sys.usb.config=mtp,adb
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel PID/VID for MTP + ADB mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0343
@@ -77,8 +77,8 @@ on property:sys.usb.config=mtp,adb
 
 # USB PTP configuration
 on property:sys.usb.config=ptp
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel PID/VID for PTP mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0384
@@ -89,8 +89,8 @@ on property:sys.usb.config=ptp
 
 # USB PTP configuration, with adb
 on property:sys.usb.config=ptp,adb
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel PID/VID for PTP + ADB mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0345
@@ -103,8 +103,8 @@ on property:sys.usb.config=ptp,adb
 
 # USB RNDIS configuration
 on property:sys.usb.config=rndis
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel PID/VID for RNDIS mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0344
@@ -115,8 +115,8 @@ on property:sys.usb.config=rndis
 
 # USB RNDIS configuration, with adb
 on property:sys.usb.config=rndis,adb
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
-
     # Intel PID/VID for RNDIS + ADB mode
     write /sys/class/android_usb/android0/idVendor 0x19D2
     write /sys/class/android_usb/android0/idProduct 0x0344
@@ -127,6 +127,7 @@ on property:sys.usb.config=rndis,adb
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=com
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
 	write /sys/class/android_usb/android0/idVendor 19d2
     write /sys/class/android_usb/android0/idProduct 0342
@@ -137,6 +138,7 @@ on property:sys.usb.config=com
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=com,adb
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
 	write /sys/class/android_usb/android0/idVendor 19d2
     write /sys/class/android_usb/android0/idProduct 0342
@@ -148,6 +150,7 @@ on property:sys.usb.config=com,adb
     setprop sys.usb.state ${sys.usb.config}
 	
 on property:sys.usb.config=cdrom
+    stop adbd
     write /sys/class/android_usb/android0/enable 0
 	write /sys/class/android_usb/android0/idVendor 19d2
     write /sys/class/android_usb/android0/idProduct 0120
