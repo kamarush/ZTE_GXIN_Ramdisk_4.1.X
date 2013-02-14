@@ -1,3 +1,6 @@
+import init.oom.rc
+import init.diag.rc
+
 on early-init
     mkdir /mnt/sdcard-ext 0000 system system
     symlink /mnt/sdcard-ext /sdcard-ext
